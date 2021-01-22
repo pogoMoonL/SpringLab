@@ -1,12 +1,18 @@
 package com.nickhuang.springLab.controller;
 
 import java.util.concurrent.atomic.AtomicLong;
+import java.beans.PropertyDescriptor;
+
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -43,8 +49,19 @@ public class GreetingController {
 
             if (title == null){
                 tutorialRepository.findAll().stream().forEach(playerCrab -> {
-                    dto.put( "id", 3);
-                    dto.put("content", "playerCra" );
+//                    getname
+                    Field[] fields = playerCrab.getClass().getDeclaredFields();
+                    for(int i = 0; i < fields.length; i++) {
+//                        Object nick = Tutorial.newInstance();
+
+                        String attribute = fields[i].getName();
+//                        PropertyDescriptor pd = new PropertyDescriptor(attribute, nick);
+//                        Method rM = pd.getReadMethod();
+
+//                        dto.put( attribute, rM.invoke(playerCrab));
+                        dto.put( attribute, i);
+                    }
+
                     System.out.println(playerCrab);
                 });
             }

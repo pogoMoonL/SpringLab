@@ -38,3 +38,4 @@ services:
 
 Ref: https://bezkoder.com/spring-boot-jwt-authentication/
      https://www.javatpoint.com/spring-boot-multi-module-project
+     https://github.com/bezkoder/spring-boot-data-jpa-mysql

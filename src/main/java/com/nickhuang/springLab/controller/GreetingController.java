@@ -35,15 +35,13 @@ import com.nickhuang.springLab.repository.TutorialRepository;
 @RequestMapping("/api")
 public class GreetingController {
     private static final String template = "Hello, %s!";
-    private final AtomicLong counter = new AtomicLong();
-
 
     @Autowired
     TutorialRepository tutorialRepository;
 
 
     @GetMapping("/tutorials")
-    public ResponseEntity<Object> getAllTutorials(@RequestParam(required = false) String title) {
+    public ResponseEntity<Object> getAllTutorials(@RequestParam(required = false) String title) throws IllegalAccessException {
         try {
             Map<String, Object> dto = new HashMap<>();
 
@@ -51,16 +49,25 @@ public class GreetingController {
                 tutorialRepository.findAll().stream().forEach(playerCrab -> {
 //                    getname
                     Field[] fields = playerCrab.getClass().getDeclaredFields();
-                    for(int i = 0; i < fields.length; i++) {
-//                        Object nick = Tutorial.newInstance();
 
-                        String attribute = fields[i].getName();
-//                        PropertyDescriptor pd = new PropertyDescriptor(attribute, nick);
-//                        Method rM = pd.getReadMethod();
+                    try {
+                        for(Field field : fields){
+                            // 获取原来的访问控制权限
+                            boolean accessFlag = field.isAccessible();
+                            if(!field.isAccessible()){
+                                field.setAccessible(true);
+                            }
+//                            System.out.println("成员属性:"+field.getName()+" 成员属性修饰符: "+field.getModifiers()+" 成员属性值: "+field.get(playerCrab));
+                            dto.put( field.getName(), field.get(playerCrab));
 
-//                        dto.put( attribute, rM.invoke(playerCrab));
-                        dto.put( attribute, i);
+                        }
                     }
+                    catch(Exception e) {
+                        System.out.println(e.toString());
+                    }
+
+
+
 
                     System.out.println(playerCrab);
                 });

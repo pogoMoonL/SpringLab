@@ -36,7 +36,13 @@ services:
 - `docker container rm <container_name>`
 - `docker image rm <image_name>`
 
-Ref: https://bezkoder.com/spring-boot-jwt-authentication/
+Ref: 
+     https://bezkoder.com/spring-boot-jwt-authentication/
+
      https://www.javatpoint.com/spring-boot-multi-module-project
+
      https://github.com/bezkoder/spring-boot-data-jpa-mysql
+
      https://github.com/Raysmond/SpringBlog
+
+    https://github.com/eclipse-ee4j/servlet-api

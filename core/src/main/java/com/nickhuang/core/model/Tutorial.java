@@ -1,4 +1,4 @@
-package com.nickhuang.springLab.model;
+package com.nickhuang.core.model;
 
 import javax.persistence.*;
 

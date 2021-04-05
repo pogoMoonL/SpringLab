@@ -1,4 +1,4 @@
-package com.nickhuang.springLab.controller;
+package com.nickhuang.core.controller;
 
 import java.util.concurrent.atomic.AtomicLong;
 import java.beans.PropertyDescriptor;
@@ -28,8 +28,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.nickhuang.springLab.model.Tutorial;
-import com.nickhuang.springLab.repository.TutorialRepository;
+import com.nickhuang.core.model.Tutorial;
+import com.nickhuang.core.repository.TutorialRepository;
 
 @RestController
 @RequestMapping("/api")
@@ -57,7 +57,6 @@ public class GreetingController {
                             if(!field.isAccessible()){
                                 field.setAccessible(true);
                             }
-//                            System.out.println("成员属性:"+field.getName()+" 成员属性修饰符: "+field.getModifiers()+" 成员属性值: "+field.get(playerCrab));
                             dto.put( field.getName(), field.get(playerCrab));
 
                         }
@@ -66,10 +65,6 @@ public class GreetingController {
                         System.out.println(e.toString());
                     }
 
-
-
-
-                    System.out.println(playerCrab);
                 });
             }
 

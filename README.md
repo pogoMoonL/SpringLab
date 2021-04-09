@@ -50,3 +50,11 @@ Ref:
     https://github.com/shivrajjadhav733/springboot-docker-compose
 
     https://github.com/codeforgeyt/airport-management
+
+# Kafaka
+
+REF:
+https://github.com/djarza/football-events
+https://github.com/ewolff/microservice-kafka
+https://github.com/codecentric/event-based-shopping-system
+https://github.com/berndruecker/flowing-retail

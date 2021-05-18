@@ -53,8 +53,26 @@ Ref:
 
 # Kafaka
 
+
 REF:
 https://github.com/djarza/football-events
 https://github.com/ewolff/microservice-kafka
 https://github.com/codecentric/event-based-shopping-system
 https://github.com/berndruecker/flowing-retail
+
+# Test Tool
+
+https://docs.locust.io/en/stable/use-as-lib.html#full-example
+
+
+
+# DDD & event 
+
+https://github.com/anruence/enode
+https://microservices.io/translations/index.html
+https://github.com/ddd-by-examples/all-things-cqrs
+
+# How to Run webServer
+
+Main class `` com.nickhuang.webserver.App``
+Java SDK ``11``
